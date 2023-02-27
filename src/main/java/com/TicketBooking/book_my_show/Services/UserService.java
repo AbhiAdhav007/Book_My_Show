@@ -1,5 +1,6 @@
 package com.TicketBooking.book_my_show.Services;
 
+import com.TicketBooking.book_my_show.Services.Converters.UserConverter;
 import com.TicketBooking.book_my_show.Req_DTOs.UserEntryDto;
 import com.TicketBooking.book_my_show.Models.User;
 import com.TicketBooking.book_my_show.Repositories.UserRepository;
@@ -12,15 +13,9 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public String addUser(UserEntryDto userEntryDto){
+    public String addUser(UserEntryDto userEntryDto) throws Exception{
 
-        //here we need to convert userEntrydto to the user and save
-        /*
-            old method : create new object and save its attributes
-         */
-
-        User user = User.builder().age(userEntryDto.getAge()).name(userEntryDto.getName()).email(userEntryDto.getEmail()).
-                mobNo(userEntryDto.getMobNo()).address(userEntryDto.getAddress()).build();
+        User user = UserConverter.convertDtoToEntity(userEntryDto);
 
         userRepository.save(user);
 

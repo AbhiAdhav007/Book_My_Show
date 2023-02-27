@@ -12,6 +12,7 @@ import java.util.List;
 @Table(name = "movies")
 @Data
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
 public class Movie {
 

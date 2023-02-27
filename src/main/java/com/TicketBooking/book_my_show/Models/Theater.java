@@ -9,6 +9,8 @@ import java.util.List;
 @Entity
 @Table(name = "theater")
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Theater {
 
