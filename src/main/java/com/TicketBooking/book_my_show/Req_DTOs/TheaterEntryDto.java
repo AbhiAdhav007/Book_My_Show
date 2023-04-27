@@ -9,7 +9,7 @@ public class TheaterEntryDto {
 
     private String location;
 
-    private int premiumSeatCount;
+    private int premiumSeatsCount;
  
     private int classicSeatsCount;
 

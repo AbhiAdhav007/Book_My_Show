@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "theater")
+@Table(name = "theaters")
 @Data
 @Builder
 @AllArgsConstructor
@@ -23,7 +23,6 @@ public class Theater {
     private String location;
 
     // this is parent wrt theater seats
-
     @OneToMany(mappedBy = "theater" , cascade = CascadeType.ALL)
     private List<TheaterSeats> theaterSeatsList = new ArrayList<>();
 

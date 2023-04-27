@@ -6,11 +6,13 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "ticket")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Ticket {
@@ -31,6 +33,8 @@ public class Ticket {
     private LocalDate date;
 
     private String theaterName;
+
+    private String bookedSeats;
 
 
     //this is the child wrt to user

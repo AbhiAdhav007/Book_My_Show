@@ -11,10 +11,9 @@ public class UserConverter {
         /*
             old method : create new object and save its attributes
          */
-        User user = User.builder().age(userEntryDto.getAge()).name(userEntryDto.getName()).email(userEntryDto.getEmail()).
-                mobNo(userEntryDto.getMobNo()).address(userEntryDto.getAddress()).build();
 
-        return user;
+        return User.builder().age(userEntryDto.getAge()).name(userEntryDto.getName()).email(userEntryDto.getEmail()).
+                mobNo(userEntryDto.getMobNo()).address(userEntryDto.getAddress()).build();
 
     }
 }

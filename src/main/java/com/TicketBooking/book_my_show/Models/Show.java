@@ -15,6 +15,8 @@ import java.util.List;
 @Entity
 @Table(name = "shows")
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Show {
     @Id
