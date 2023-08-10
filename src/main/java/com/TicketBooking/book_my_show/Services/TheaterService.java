@@ -6,6 +6,7 @@ import com.TicketBooking.book_my_show.Models.Show;
 import com.TicketBooking.book_my_show.Models.Theater;
 import com.TicketBooking.book_my_show.Models.TheaterSeats;
 import com.TicketBooking.book_my_show.Repositories.MovieRepository;
+import com.TicketBooking.book_my_show.Repositories.ShowRepository;
 import com.TicketBooking.book_my_show.Repositories.TheaterRepository;
 import com.TicketBooking.book_my_show.Repositories.TheaterSeatsRepository;
 import com.TicketBooking.book_my_show.Req_DTOs.TheaterEntryDto;
@@ -27,6 +28,9 @@ public class TheaterService {
 
     @Autowired
     MovieRepository movieRepository;
+
+    @Autowired
+    ShowRepository showRepository;
 
     public String addTheater(TheaterEntryDto theaterEntryDto) throws Exception{
 
@@ -86,15 +90,13 @@ public class TheaterService {
 
     public List<Theater> getTheaters(int movieId){
 
-        Movie movie = movieRepository.findById(movieId).get();
-
         List<Theater> theaterList = new ArrayList<>();
 
-        List<Show> showList = movie.getShowList();
+        List<Show> showList = showRepository.findAll();
 
         for(Show show : showList){
 
-            if(show.getMovie().equals(movie)){
+            if(show.getMovie().getId() == movieId){
 
                 theaterList.add(show.getTheater());
             }
